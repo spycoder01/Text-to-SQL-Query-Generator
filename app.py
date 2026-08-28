@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 from gemini import generate_sql
-from database import execute_query
+from database import execute_query, get_schema, format_schema
 
 
 st.title("Text-to-SQL Query Generator")
@@ -23,8 +23,12 @@ if st.button("Run Query"):
 
         try:
 
+            # Get database schema from MySQL
+            schema = get_schema()
+            formatted_schema = format_schema(schema)
+
             # Generate SQL using Gemini
-            sql = generate_sql(question)
+            sql = generate_sql(question, formatted_schema)
 
             st.subheader("Generated SQL")
 
