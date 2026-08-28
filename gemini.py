@@ -9,7 +9,7 @@ client = genai.Client(
 )
 
 
-def generate_sql(question):
+def generate_sql(question, schema):
 
     prompt = f"""
 You are an expert MySQL SQL developer.
@@ -17,15 +17,7 @@ You are an expert MySQL SQL developer.
 Convert the user's question into a MySQL SQL query.
 
 Database schema:
-
-Table: employees
-
-Columns:
-- employee_id INT
-- name VARCHAR(100)
-- department VARCHAR(100)
-- salary INT
-- age INT
+{schema}
 
 Rules:
 1. Generate only the SQL query.
