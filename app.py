@@ -24,8 +24,12 @@ if st.button("Run Query"):
         try:
 
             # Get database schema from MySQL
-            schema = get_schema()
-            formatted_schema = format_schema(schema)
+            columns, foreign_keys = get_schema()
+
+            formatted_schema = format_schema(
+                columns,
+                foreign_keys
+            )
 
             # Generate SQL using Gemini
             sql = generate_sql(question, formatted_schema)

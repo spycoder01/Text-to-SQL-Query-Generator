@@ -25,9 +25,11 @@ Rules:
 3. Do not explain the query.
 4. Use MySQL syntax.
 5. Only generate SELECT queries.
-6. Format the SQL query across multiple lines for readability.
+6. Format the SQL query for readability.
 7. Put each major SQL clause on a separate line.
-8. Use proper indentation.
+8. Keep the JOIN condition on a separate line after JOIN.
+9. Do not unnecessarily break simple expressions across multiple lines.
+10. Use only tables and columns present in the provided schema.
 
 User question:
 {question}
